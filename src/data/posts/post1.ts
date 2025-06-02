@@ -1,0 +1,41 @@
+import { Post } from '../../types';
+
+const post: Post = {
+  id: '1',
+  title: 'Understanding Pythagorean Theorem',
+  images: [
+    {
+      url: 'https://private-user-images.githubusercontent.com/199557837/440250162-effabc04-9440-4b42-a6e6-43560936b9a6.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDY0MTc4NzAsIm5iZiI6MTc0NjQxNzU3MCwicGF0aCI6Ii8xOTk1NTc4MzcvNDQwMjUwMTYyLWVmZmFiYzA0LTk0NDAtNGI0Mi1hNmU2LTQzNTYwOTM2YjlhNi5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNTA1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDUwNVQwMzU5MzBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iMzNjYzJiNmM5NzAxYWIwMDc5NTc5ODZjZmE1NTI4MGJlOWYwNzUwZDczZjBmNGM1MDI3NDg2MmExYWRiZDYxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.5wIfUWDRoUWgutymtKkXF15B8ruDKMiezgb4cBjVB3k',
+      caption: ''
+    },
+    {
+      url: 'https://private-user-images.githubusercontent.com/199557837/440250160-bf44ecfc-c5c0-4682-a044-4cfd114bc1a5.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDY0MTc4NzAsIm5iZiI6MTc0NjQxNzU3MCwicGF0aCI6Ii8xOTk1NTc4MzcvNDQwMjUwMTYwLWJmNDRlY2ZjLWM1YzAtNDY4Mi1hMDQ0LTRjZmQxMTRiYzFhNS5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNTA1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDUwNVQwMzU5MzBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mZjZiZGI3MzNlMGM1Zjg3MGYyZGU4NTYzNTM5MDdkNDQwYWI4Y2FmNzlmY2EyOWJjMmJiNzM4ZmQ3YWI5MzRhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.iltBxznkb0333MZprZdrHB0Njj6sSsKZqQ6sd1z-g0Q',
+      caption: ''
+    },
+    {
+      url: 'https://private-user-images.githubusercontent.com/199557837/440250157-b1e7394a-e202-4e00-a6cc-e159d61fc9b4.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDY0MTc4NzAsIm5iZiI6MTc0NjQxNzU3MCwicGF0aCI6Ii8xOTk1NTc4MzcvNDQwMjUwMTU3LWIxZTczOTRhLWUyMDItNGUwMC1hNmNjLWUxNTlkNjFmYzliNC5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNTA1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDUwNVQwMzU5MzBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT05YWYzZWZjMDI5YzM1MjMyMGQ2ZDU2ZDc2MWQ2NzFiMjc2YTA1NDc1MWJkYzhhMmQ4ZTk4MGNmNDk1OGNmN2NmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.83AfIj3swTXmQdx5qWbVWmbb5rzjffJTGXfrHfRHY6s',
+      caption: ''
+    },
+    {
+      url: 'https://private-user-images.githubusercontent.com/199557837/440250154-420ece48-45e8-4ed7-ac96-76c379bcba85.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDY0MTc4NzAsIm5iZiI6MTc0NjQxNzU3MCwicGF0aCI6Ii8xOTk1NTc4MzcvNDQwMjUwMTU0LTQyMGVjZTQ4LTQ1ZTgtNGVkNy1hYzk2LTc2YzM3OWJjYmE4NS5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNTA1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDUwNVQwMzU5MzBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0yNjZjOTJmNTM2ZmYwYWIwNWE1NGIyYmQzYzcyNTk0ZjNhZmQ3OWI0MGY2NGM3NWE5ZWI0YjVjMzFjNjI3NmVjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.y5o_cmlbinXCnJAZksLYZ14CiOxFxD4EfbcDtV1wJNA',
+      caption: ''
+    },
+    {
+      url: 'https://private-user-images.githubusercontent.com/199557837/440250148-1fc9cd57-1a44-48de-b4c1-3e37cdc03994.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDY0MTc4NzAsIm5iZiI6MTc0NjQxNzU3MCwicGF0aCI6Ii8xOTk1NTc4MzcvNDQwMjUwMTQ4LTFmYzljZDU3LTFhNDQtNDhkZS1iNGMxLTNlMzdjZGMwMzk5NC5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNTA1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDUwNVQwMzU5MzBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iNWM4MmEwNDI4MzljYjViNjVhNGJjZDc5ZTg1MGYyNjQyOGFiMzhiN2QwMTI0ZDRhMjFmMDIxNzZjMGMxNTk0JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.YI3jP1sH0DflmJ3ealO0yaHAbpA_ExN7SQWDV5YuYko',
+      caption: ''
+    },
+    {
+      url: 'https://private-user-images.githubusercontent.com/199557837/440250145-ccbfd5b0-7a0c-4a69-baaf-8b25318b39b8.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDY0MTc4NzAsIm5iZiI6MTc0NjQxNzU3MCwicGF0aCI6Ii8xOTk1NTc4MzcvNDQwMjUwMTQ1LWNjYmZkNWIwLTdhMGMtNGE2OS1iYWFmLThiMjUzMThiMzliOC5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNTA1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDUwNVQwMzU5MzBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT05NDBiODE0MDY0ZTE2NDk0ODRiMmI2MTMwMjUyNzU1MGQ0MDYyYzg0NTRjMmFkNjk3NDkzZjgzNGJhMGE4MmNlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.FUWlwxAN_5BYOIZI_D5XJSZwYCFZvxWBFtWb-Q-EqBY',
+      caption: ''
+    }
+  ],
+  caption: 'Gravity is a fundamental force of attraction between objects with mass. The greater the mass, the stronger the gravitational pull. It keeps our feet on the ground and planets orbiting the sun. Understanding gravity is crucial for fields like astronomy and engineering. It helps us predict the behavior of celestial bodies and design spacecraft. As we explore the universe, our understanding of gravity continues to evolve. This fundamental force shapes the cosmos we inhabit.',
+  class: '10th',
+  subject: 'Science',
+  topics: ['Gravity', 'Physics', 'Science'],
+  createdAt: '2025-06-01T10:00:00Z',
+  likes: 156,
+  bookmarked: false
+};
+
+export default post;
