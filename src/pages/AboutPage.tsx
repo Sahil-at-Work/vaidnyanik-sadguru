@@ -126,14 +126,21 @@ const AboutPage: React.FC = () => {
                     />
                   </div>
                   <div>
+                    <div className="flex items-center mb-1">
+                      <Star className="h-5 w-5 text-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400" />
+                    </div>
                     <p className="text-gray-600 dark:text-gray-300 mb-4">
                       "Vaidnyanik has completely transformed my learning experience. The interactive content 
                       and detailed explanations make complex topics easy to understand. I've seen a significant 
                       improvement in my grades since I started using the platform."
                     </p>
                     <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white">Samael Starshine</h4>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">Class 12 Student</p>
+                      <h4 className="font-semibold text-gray-900 dark:text-white">Priya Sharma</h4>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">Class 12 Student, Delhi Public School</p>
                     </div>
                   </div>
                 </div>
@@ -150,13 +157,20 @@ const AboutPage: React.FC = () => {
                     />
                   </div>
                   <div>
+                    <div className="flex items-center mb-1">
+                      <Star className="h-5 w-5 text-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400" />
+                    </div>
                     <p className="text-gray-600 dark:text-gray-300 mb-4">
                       "As an educator, I find Vaidnyanik to be an invaluable teaching resource. The platform's 
                       structured approach to content delivery and the quality of educational materials have 
                       made my lessons more effective and engaging for students."
                     </p>
                     <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white">Anshuman Singh</h4>
+                      <h4 className="font-semibold text-gray-900 dark:text-white">Dr. Rajesh Kumar</h4>
                       <p className="text-sm text-gray-500 dark:text-gray-400">Physics Teacher, 15 years experience</p>
                     </div>
                   </div>
@@ -174,13 +188,20 @@ const AboutPage: React.FC = () => {
                     />
                   </div>
                   <div>
+                    <div className="flex items-center mb-1">
+                      <Star className="h-5 w-5 text-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400" />
+                    </div>
                     <p className="text-gray-600 dark:text-gray-300 mb-4">
                       "I've seen a remarkable improvement in my daughter's academic performance since she 
                       started using Vaidnyanik. The platform's comprehensive coverage of subjects and 
                       interactive learning approach has helped her develop a deeper understanding of concepts."
                     </p>
                     <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white">Mrs. Janhvi Shirodkar</h4>
+                      <h4 className="font-semibold text-gray-900 dark:text-white">Mrs. Meera Patel</h4>
                       <p className="text-sm text-gray-500 dark:text-gray-400">Parent of a Class 11 student</p>
                     </div>
                   </div>

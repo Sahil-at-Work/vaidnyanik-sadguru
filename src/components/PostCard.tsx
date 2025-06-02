@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bookmark, BookmarkCheck, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Bookmark, BookmarkCheck, Heart, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
 import { Post } from '../types';
 import { usePosts } from '../context/PostsContext';
 
@@ -34,55 +34,69 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
     );
   };
 
+  const hasImages = post.images && post.images.length > 0;
+
   return (
     <Link 
       to={`/post/${post.id}`}
       className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full"
     >
       <div className="relative overflow-hidden">
-        <img 
-          src={post.images[currentImageIndex].url} 
-          alt={post.images[currentImageIndex].caption}
-          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        
-        {/* Image Navigation */}
-        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between items-center px-2">
-          <button
-            onClick={handlePrevImage}
-            className="p-1.5 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors transform hover:scale-110"
-            aria-label="Previous image"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button
-            onClick={handleNextImage}
-            className="p-1.5 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors transform hover:scale-110"
-            aria-label="Next image"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-        </div>
-        
-        {/* Image Indicators */}
-        <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-2">
-          {post.images.map((_, index) => (
-            <button
-              key={index}
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setCurrentImageIndex(index);
-              }}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentImageIndex 
-                  ? 'bg-white scale-110' 
-                  : 'bg-white/50 hover:bg-white/75'
-              }`}
-              aria-label={`Go to image ${index + 1}`}
+        {hasImages ? (
+          <>
+            <img 
+              src={post.images[currentImageIndex].url} 
+              alt={post.images[currentImageIndex].caption || post.title}
+              className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
             />
-          ))}
-        </div>
+            
+            {post.images.length > 1 && (
+              <>
+                {/* Image Navigation */}
+                <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between items-center px-2">
+                  <button
+                    onClick={handlePrevImage}
+                    className="p-1.5 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors transform hover:scale-110"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </button>
+                  <button
+                    onClick={handleNextImage}
+                    className="p-1.5 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors transform hover:scale-110"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
+                </div>
+                
+                {/* Image Indicators */}
+                <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-2">
+                  {post.images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setCurrentImageIndex(index);
+                      }}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex 
+                          ? 'bg-white scale-110' 
+                          : 'bg-white/50 hover:bg-white/75'
+                      }`}
+                      aria-label={`Go to image ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </>
+        ) : (
+          <div className="w-full h-48 bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+            <ImageIcon className="w-12 h-12 text-gray-400 dark:text-gray-500" />
+          </div>
+        )}
         
         <div className="absolute top-0 left-0 m-3">
           <span className="inline-block px-2 py-1 text-xs font-semibold bg-indigo-600/90 text-white rounded-full">
