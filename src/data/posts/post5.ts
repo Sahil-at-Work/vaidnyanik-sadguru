@@ -1,40 +1,36 @@
 import { Post } from '../../types';
 
 const post: Post = {
-  id: '1',
-  title: 'The Apple Secret',
+  id: '5',
+  title: 'Kepler Laws',
   images: [
     {
-      url: 'https://github.com/user-attachments/assets/effabc04-9440-4b42-a6e6-43560936b9a6',
+      url: 'https://github.com/user-attachments/assets/2f170042-fefa-4876-a084-3d9f53b489bf',
       caption: ''
     },
     {
-      url: 'https://github.com/user-attachments/assets/bf44ecfc-c5c0-4682-a044-4cfd114bc1a5',
+      url: 'https://github.com/user-attachments/assets/fc53d972-6492-4649-b2d3-451500931859',
       caption: ''
     },
     {
-      url: 'https://github.com/user-attachments/assets/b1e7394a-e202-4e00-a6cc-e159d61fc9b4',
+      url: 'https://github.com/user-attachments/assets/9ce85781-a58f-4be8-a7c4-93e1795650c8',
       caption: ''
     },
     {
-      url: 'https://github.com/user-attachments/assets/420ece48-45e8-4ed7-ac96-76c379bcba85',
+      url: 'https://github.com/user-attachments/assets/831aecb0-53d6-4d58-a50a-5c0f911db8af',
       caption: ''
     },
     {
-      url: 'https://github.com/user-attachments/assets/1fc9cd57-1a44-48de-b4c1-3e37cdc03994',
-      caption: ''
-    },
-    {
-      url: 'https://github.com/user-attachments/assets/ccbfd5b0-7a0c-4a69-baaf-8b25318b39b8',
+      url: 'https://github.com/user-attachments/assets/fded1416-322a-4d0a-a0e9-03d602bc67fb',
       caption: ''
     }
   ],
   caption: 'Gravity is a fundamental force of attraction between objects with mass. The greater the mass, the stronger the gravitational pull. It keeps our feet on the ground and planets orbiting the sun. Understanding gravity is crucial for fields like astronomy and engineering. It helps us predict the behavior of celestial bodies and design spacecraft. As we explore the universe, our understanding of gravity continues to evolve. This fundamental force shapes the cosmos we inhabit.',
   class: '10th',
   subject: 'Science',
-  topics: ['Gravitation', 'Physics', 'Science'],
-  createdAt: '2025-05-06T10:00:00Z',
-  likes: 156,
+  topics: ['Gravitation', 'Physics'],
+  createdAt: '2025-05-28T14:30:00Z',
+  likes: 132,
   bookmarked: false
 };
 

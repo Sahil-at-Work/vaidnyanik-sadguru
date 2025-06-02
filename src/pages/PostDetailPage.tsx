@@ -21,13 +21,12 @@ const PostDetailPage: React.FC = () => {
   }, [post, navigate]);
 
   const handleKeyNavigation = useCallback((e: KeyboardEvent) => {
-    if (!post?.images?.length) return;
     if (e.key === 'ArrowLeft') {
       handlePrevImage();
     } else if (e.key === 'ArrowRight') {
       handleNextImage();
     }
-  }, [post]);
+  }, []);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyNavigation);
@@ -62,26 +61,23 @@ const PostDetailPage: React.FC = () => {
   };
 
   const handlePrevImage = () => {
-    if (!post.images?.length) return;
     setCurrentImageIndex(prev => 
       prev === 0 ? post.images.length - 1 : prev - 1
     );
   };
 
   const handleNextImage = () => {
-    if (!post.images?.length) return;
     setCurrentImageIndex(prev => 
       prev === post.images.length - 1 ? 0 : prev + 1
     );
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
-    if (!post.images?.length) return;
     setTouchStart(e.touches[0].clientX);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    if (touchStart === null || !post.images?.length) return;
+    if (touchStart === null) return;
 
     const currentTouch = e.touches[0].clientX;
     const diff = touchStart - currentTouch;
@@ -158,96 +154,80 @@ const PostDetailPage: React.FC = () => {
         </div>
         
         {/* Post Image Gallery */}
-        {post.images?.length > 0 ? (
-          <div className="mb-8 rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800 p-2">
-            <div className="relative">
-              <img 
-                src={post.images[currentImageIndex].url} 
-                alt={post.images[currentImageIndex].caption}
-                className="w-full max-h-[600px] object-contain rounded-lg cursor-grab active:cursor-grabbing"
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-                draggable={false}
-              />
-              
-              {/* Image Navigation - Only show if there are multiple images */}
-              {post.images.length > 1 && (
-                <>
-                  <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between items-center px-4">
-                    <button
-                      onClick={handlePrevImage}
-                      className="p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors transform hover:scale-110"
-                      aria-label="Previous image"
-                    >
-                      <ChevronLeft className="h-6 w-6" />
-                    </button>
-                    <button
-                      onClick={handleNextImage}
-                      className="p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors transform hover:scale-110"
-                      aria-label="Next image"
-                    >
-                      <ChevronRight className="h-6 w-6" />
-                    </button>
-                  </div>
-                  
-                  {/* Image Indicators */}
-                  <div className="absolute bottom-4 left-0 right-0">
-                    <div className="flex justify-center space-x-2">
-                      {post.images.map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setCurrentImageIndex(index)}
-                          className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                            index === currentImageIndex 
-                              ? 'bg-white scale-110' 
-                              : 'bg-white/50 hover:bg-white/75'
-                          }`}
-                          aria-label={`Go to image ${index + 1}`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </>
-              )}
-              
-              {/* Image Caption */}
-              {post.images[currentImageIndex].caption && (
-                <p className="text-center text-white text-sm mt-2 bg-black/50 py-1 px-4 rounded-full mx-auto w-fit">
-                  {post.images[currentImageIndex].caption}
-                </p>
-              )}
+        <div className="mb-8 rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800 p-2">
+          <div className="relative">
+            <img 
+              src={post.images[currentImageIndex].url} 
+              alt={post.images[currentImageIndex].caption}
+              className="w-full max-h-[600px] object-contain rounded-lg cursor-grab active:cursor-grabbing"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              draggable={false}
+            />
+            
+            {/* Image Navigation */}
+            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between items-center px-4">
+              <button
+                onClick={handlePrevImage}
+                className="p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors transform hover:scale-110"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+              <button
+                onClick={handleNextImage}
+                className="p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors transform hover:scale-110"
+                aria-label="Next image"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
             </div>
             
-            {/* Thumbnail Navigation - Only show if there are multiple images */}
-            {post.images.length > 1 && (
-              <div className="flex justify-center space-x-2 mt-4 px-2">
-                {post.images.map((image, index) => (
+            {/* Image Indicators */}
+            <div className="absolute bottom-4 left-0 right-0">
+              <div className="flex justify-center space-x-2">
+                {post.images.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`relative rounded-lg overflow-hidden transition-all duration-300 ${
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                       index === currentImageIndex 
-                        ? 'ring-2 ring-indigo-600 dark:ring-indigo-400' 
-                        : 'opacity-70 hover:opacity-100'
+                        ? 'bg-white scale-110' 
+                        : 'bg-white/50 hover:bg-white/75'
                     }`}
-                  >
-                    <img 
-                      src={image.url} 
-                      alt={image.caption || `Image ${index + 1}`}
-                      className="w-20 h-20 object-cover"
-                      draggable={false}
-                    />
-                  </button>
+                    aria-label={`Go to image ${index + 1}`}
+                  />
                 ))}
               </div>
-            )}
+              <p className="text-center text-white text-sm mt-2 bg-black/50 py-1 px-4 rounded-full mx-auto w-fit">
+                {post.images[currentImageIndex].caption}
+              </p>
+            </div>
           </div>
-        ) : (
-          <div className="mb-8 rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800 p-8 text-center">
-            <p className="text-gray-500 dark:text-gray-400">No images available for this post</p>
+          
+          {/* Thumbnail Navigation */}
+          <div className="flex justify-center space-x-2 mt-4 px-2">
+            {post.images.map((image, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImageIndex(index)}
+                className={`relative rounded-lg overflow-hidden transition-all duration-300 ${
+                  index === currentImageIndex 
+                    ? 'ring-2 ring-indigo-600 dark:ring-indigo-400' 
+                    : 'opacity-70 hover:opacity-100'
+                }`}
+              >
+                <img 
+                  src={image.url} 
+                  alt={image.caption}
+                  className="w-20 h-20 object-cover"
+                  draggable={false}
+                />
+              </button>
+            ))}
           </div>
-        )}
+        </div>
         
         {/* Post Content */}
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">

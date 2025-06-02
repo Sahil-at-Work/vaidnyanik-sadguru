@@ -33,7 +33,7 @@ const HomePage: React.FC = () => {
       name: "Ms. Aarya Kherade",
       percentage: "95.40%",
       school: "St. Peter's",
-      rank: "3rd in St. Peter's",
+      rank: "3rd Rank in St. Peter's",
       image: "https://images.pexels.com/photos/3785083/pexels-photo-3785083.jpeg"
     },
     {
@@ -105,6 +105,7 @@ const testimonials = [
     rating: 5
   }
 ];
+
 
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 

@@ -1,40 +1,40 @@
 import { Post } from '../../types';
 
 const post: Post = {
-  id: '1',
-  title: 'The Apple Secret',
+  id: '4',
+  title: 'Newton and Circular Motion',
   images: [
     {
-      url: 'https://github.com/user-attachments/assets/effabc04-9440-4b42-a6e6-43560936b9a6',
+      url: 'https://github.com/user-attachments/assets/0e465fc8-721d-4018-b1b9-15610cfb223f',
       caption: ''
     },
     {
-      url: 'https://github.com/user-attachments/assets/bf44ecfc-c5c0-4682-a044-4cfd114bc1a5',
+      url: 'https://github.com/user-attachments/assets/bbd767dd-2b7c-4cf9-9c22-b0b52f43b1ee',
       caption: ''
     },
     {
-      url: 'https://github.com/user-attachments/assets/b1e7394a-e202-4e00-a6cc-e159d61fc9b4',
+      url: 'https://github.com/user-attachments/assets/314da4d0-1d84-44e7-89be-9c574c63abb5',
       caption: ''
     },
     {
-      url: 'https://github.com/user-attachments/assets/420ece48-45e8-4ed7-ac96-76c379bcba85',
+      url: 'https://github.com/user-attachments/assets/711a9281-c990-457e-88e0-44bc962dd12a',
       caption: ''
     },
     {
-      url: 'https://github.com/user-attachments/assets/1fc9cd57-1a44-48de-b4c1-3e37cdc03994',
+      url: 'https://github.com/user-attachments/assets/ef7f7ddc-3558-440b-8bf5-94202b499b8d',
       caption: ''
     },
     {
-      url: 'https://github.com/user-attachments/assets/ccbfd5b0-7a0c-4a69-baaf-8b25318b39b8',
+      url: 'https://github.com/user-attachments/assets/61f8c842-0fb8-4afa-a234-0b945a0381c9',
       caption: ''
     }
   ],
   caption: 'Gravity is a fundamental force of attraction between objects with mass. The greater the mass, the stronger the gravitational pull. It keeps our feet on the ground and planets orbiting the sun. Understanding gravity is crucial for fields like astronomy and engineering. It helps us predict the behavior of celestial bodies and design spacecraft. As we explore the universe, our understanding of gravity continues to evolve. This fundamental force shapes the cosmos we inhabit.',
   class: '10th',
   subject: 'Science',
-  topics: ['Gravitation', 'Physics', 'Science'],
-  createdAt: '2025-05-06T10:00:00Z',
-  likes: 156,
+  topics: ['Gravitation', 'Physics'],
+  createdAt: '2025-05-28T14:30:00Z',
+  likes: 132,
   bookmarked: false
 };
 

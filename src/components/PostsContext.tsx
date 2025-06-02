@@ -28,23 +28,14 @@ const defaultFilters: FilterState = {
 const PostsContext = createContext<PostsContextType | undefined>(undefined);
 
 export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [posts, setPosts] = useState<Post[]>(initialPosts);
+  const [posts] = useState<Post[]>(initialPosts);
   const [filters, setFilters] = useState<FilterState>(defaultFilters);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
-  const [availableFilters, setAvailableFilters] = useState({
+  const [availableFilters] = useState({
     classLevels: getAllClassLevels(),
     subjects: getAllSubjects(),
     topics: getAllTopics()
   });
-
-  // Update available filters when posts change
-  useEffect(() => {
-    setAvailableFilters({
-      classLevels: getAllClassLevels(),
-      subjects: getAllSubjects(),
-      topics: getAllTopics()
-    });
-  }, [posts]);
 
   // Apply filters whenever posts or filters change
   useEffect(() => {
@@ -89,8 +80,12 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   const bookmarkPost = (postId: string) => {
-    setPosts(prevPosts => 
-      prevPosts.map(post => 
+    const updatedPosts = posts.map(post => 
+      post.id === postId ? { ...post, bookmarked: !post.bookmarked } : post
+    );
+    // Update both posts and filtered posts to maintain consistency
+    setFilteredPosts(prevFiltered => 
+      prevFiltered.map(post => 
         post.id === postId ? { ...post, bookmarked: !post.bookmarked } : post
       )
     );
