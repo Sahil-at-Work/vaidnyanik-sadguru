@@ -45,23 +45,32 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const fetchPosts = async () => {
     try {
-      const { data, error } = await supabase
+      const { data: postsData, error: postsError } = await supabase
         .from('posts')
-        .select('*, likes_count, bookmarks(user_id)');
+        .select('*, bookmarks(user_id)');
 
-      if (error) throw error;
+      if (postsError) throw postsError;
 
-      const formattedPosts = data.map(post => ({
+      // Fetch quizzes
+      const { data: quizzesData, error: quizzesError } = await supabase
+        .from('quizzes')
+        .select('*');
+
+      if (quizzesError) throw quizzesError;
+
+      const formattedPosts = postsData.map(post => ({
         ...post,
         bookmarked: post.bookmarks?.length > 0,
-        likes: post.likes_count,
-        images: post.images || [] // Ensure images is always an array
+        likes: post.likes_count || 0,
+        images: post.images || [],
+        topics: post.topics?.filter(topic => typeof topic === 'string') || [],
+        quiz: quizzesData.find(quiz => quiz.post_id === post.id)
       }));
 
       setPosts(formattedPosts);
       updateAvailableFilters(formattedPosts);
     } catch (error) {
-      console.error('Error fetching posts:', error);
+      console.error('Error fetching data:', error);
     }
   };
 
@@ -71,9 +80,13 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const classLevels = new Set<ClassLevel>();
 
     posts.forEach(post => {
-      subjects.add(post.subject);
-      post.topics.forEach(topic => topics.add(topic));
-      classLevels.add(post.class);
+      if (post.subject) subjects.add(post.subject);
+      post.topics?.forEach(topic => {
+        if (typeof topic === 'string') {
+          topics.add(topic);
+        }
+      });
+      if (post.class) classLevels.add(post.class);
     });
 
     setAvailableFilters({
@@ -97,7 +110,7 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     
     if (filters.topics.length > 0) {
       result = result.filter(post => 
-        post.topics.some(topic => filters.topics.includes(topic))
+        post.topics?.some(topic => filters.topics.includes(topic))
       );
     }
     
@@ -105,8 +118,8 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       const query = filters.searchQuery.toLowerCase();
       result = result.filter(post => 
         post.title.toLowerCase().includes(query) || 
-        post.caption.toLowerCase().includes(query) ||
-        post.topics.some(topic => topic.toLowerCase().includes(query))
+        post.caption?.toLowerCase().includes(query) || 
+        post.topics?.some(topic => typeof topic === 'string' && topic.toLowerCase().includes(query))
       );
     }
     
@@ -174,7 +187,7 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       .filter(p => 
         p.id !== post.id && 
         (p.subject === post.subject || 
-          p.topics.some(topic => post.topics.includes(topic)))
+          p.topics?.some(topic => post.topics?.includes(topic)))
       )
       .slice(0, 3);
   };
